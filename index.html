@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoLab Escolar — Colégio Mathias Jacomel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+<div class="noise-overlay"></div>
+
+<!-- ══════════ TELA DE LOGIN ══════════ -->
+<div class="auth-screen" id="app">
+
+  <!-- PAINEL ESQUERDO -->
+  <aside class="auth-hero">
+    <div class="hero-rings">
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-live-badge">
+        <span class="live-dot"></span>Sistema Online
+      </div>
+
+      <div class="hero-logo-wrap">
+        <div class="logo-glow"></div>
+        <img src="logo.png" alt="Colégio Estadual Mathias Jacomel" class="hero-logo">
+      </div>
+
+      <h1 class="hero-title">
+        <span class="grad-text">InfoLab</span><br>
+        <span class="hero-title-sub">Escolar</span>
+      </h1>
+
+      <p class="hero-desc">
+        Plataforma de gestão inteligente da sala de informática do
+        <strong>Colégio Estadual Mathias Jacomel</strong> — Pinhais / PR.
+      </p>
+
+      <div class="hero-chips">
+        <div class="chip"><span>🖥️</span>30+ Computadores</div>
+        <div class="chip"><span>📚</span>Gestão em tempo real</div>
+        <div class="chip"><span>🏫</span>Fundado em 1963</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PAINEL DIREITO -->
+  <main class="auth-panel">
+    <div class="auth-card">
+
+      <div class="card-top">
+        <div class="card-icon-wrap">
+          <span>🖥️</span>
+        </div>
+        <div>
+          <h2 class="card-title"><span class="grad-text">Bem-vindo(a)</span></h2>
+          <p class="card-sub">Acesse sua conta para continuar</p>
+        </div>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="tab-btn active" id="tabLogin" onclick="mostrarLogin()">Entrar</button>
+        <button class="tab-btn" id="tabCadastro" onclick="mostrarCadastro()">Criar conta</button>
+        <div class="tab-pill" id="tabPill"></div>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginArea" class="auth-form">
+        <div class="field-group">
+          <label>E-mail</label>
+          <div class="field-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="loginEmail" placeholder="seu@email.com">
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Senha</label>
+          <div class="field-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input type="password" id="loginSenha" placeholder="••••••••">
+          </div>
+        </div>
+        <button class="btn-grad" onclick="entrar()">
+          <span>Entrar no sistema</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-hint">Sem conta? <button class="link-btn" onclick="mostrarCadastro()">Cadastre-se</button></p>
+      </div>
+
+      <!-- CADASTRO -->
+      <div id="cadastroArea" class="auth-form" style="display:none;">
+        <div class="field-group">
+          <label>Nome completo</label>
+          <div class="field-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <input type="text" id="nome" placeholder="Seu nome completo">
+          </div>
+        </div>
+        <div class="field-group">
+          <label>E-mail</label>
+          <div class="field-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input type="email" id="email" placeholder="seu@email.com">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Senha</label>
+            <div class="field-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <input type="password" id="senha" placeholder="••••••••">
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Perfil</label>
+            <div class="field-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <select id="tipo">
+                <option value="aluno">Aluno</option>
+                <option value="professor">Professor</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button class="btn-grad" onclick="cadastrar()">
+          <span>Criar minha conta</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-hint">Já tem conta? <button class="link-btn" onclick="mostrarLogin()">Entrar</button></p>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ══════════ DASHBOARD ══════════ -->
+<div id="dashboard" style="display:none;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
