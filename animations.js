@@ -108,9 +108,22 @@
     element.classList.add(className);
   }
 
+  function shakeElement(element, className = "shake") {
+    if (!element || prefersReducedMotion()) return;
+    element.classList.remove(className);
+    void element.offsetWidth;
+    element.classList.add(className);
+    element.addEventListener(
+      "animationend",
+      () => element.classList.remove(className),
+      { once: true }
+    );
+  }
+
   window.InfoLabAnimations = {
     initAuthBackground,
     reveal,
     pulseElement,
+    shakeElement,
   };
 })();

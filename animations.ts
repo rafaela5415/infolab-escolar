@@ -11,6 +11,7 @@ type InfoLabAnimations = {
   initAuthBackground: (canvasId: string) => void;
   reveal: (selector: string, delayStep?: number) => void;
   pulseElement: (element: Element | null, className?: string) => void;
+  shakeElement: (element: Element | null, className?: string) => void;
 };
 
 declare global {
@@ -125,10 +126,23 @@ function pulseElement(element: Element | null, className = "status-updated"): vo
   element.classList.add(className);
 }
 
+function shakeElement(element: Element | null, className = "shake"): void {
+  if (!element || prefersReducedMotion()) return;
+  element.classList.remove(className);
+  void (element as HTMLElement).offsetWidth;
+  element.classList.add(className);
+  element.addEventListener(
+    "animationend",
+    () => element.classList.remove(className),
+    { once: true }
+  );
+}
+
 window.InfoLabAnimations = {
   initAuthBackground,
   reveal,
   pulseElement,
+  shakeElement,
 };
 
 export {};

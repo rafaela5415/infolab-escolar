@@ -102,6 +102,10 @@
           <div class="field-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             <input type="password" id="loginSenha" name="password" placeholder="••••••••" autocomplete="current-password" required>
+            <button type="button" class="pw-toggle" data-toggle-password="loginSenha" aria-label="Mostrar senha" aria-pressed="false">
+              <span class="eye-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span class="eye-off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.9 4.2A10.9 10.9 0 0 1 12 4c6.5 0 10 7 10 7a18 18 0 0 1-3.2 4.1M6.6 6.6A18 18 0 0 0 2 11s3.5 7 10 7a10.9 10.9 0 0 0 4.1-.8"/><path d="m9.5 9.5a3 3 0 0 0 4.2 4.2"/><path d="M2 2l20 20"/></svg></span>
+            </button>
           </div>
         </div>
         <button class="btn-grad" type="submit">
@@ -133,6 +137,10 @@
             <div class="field-box">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               <input type="password" id="senha" name="new-password" placeholder="mínimo 6 caracteres" autocomplete="new-password" minlength="6" required>
+              <button type="button" class="pw-toggle" data-toggle-password="senha" aria-label="Mostrar senha" aria-pressed="false">
+                <span class="eye-on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+                <span class="eye-off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.9 4.2A10.9 10.9 0 0 1 12 4c6.5 0 10 7 10 7a18 18 0 0 1-3.2 4.1M6.6 6.6A18 18 0 0 0 2 11s3.5 7 10 7a10.9 10.9 0 0 0 4.1-.8"/><path d="m9.5 9.5a3 3 0 0 0 4.2 4.2"/><path d="M2 2l20 20"/></svg></span>
+              </button>
             </div>
           </div>
           <div class="field-group">
@@ -144,6 +152,16 @@
                 <option value="professor">Professor</option>
               </select>
             </div>
+          </div>
+        </div>
+
+        <div class="profile-preview" id="profilePreview" data-role="aluno">
+          <span class="profile-preview-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </span>
+          <div>
+            <span>Tipo de conta selecionado</span>
+            <strong data-preview-role>Aluno</strong>
           </div>
         </div>
         <button class="btn-grad" type="submit">
