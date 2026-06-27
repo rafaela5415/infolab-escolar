@@ -478,8 +478,8 @@ body {
 .field-box select option { background: #031860; color: #e2e8f0; }
 
 /* campo "Perfil": afasta o ícone (capelo) da borda e dá respiro ao texto */
-.field-box:has(select) svg { margin-left: 16px; }
-.field-box:has(select) select { padding-left: 4px; }
+.field-box.is-select svg { margin-left: 18px; margin-right: 14px; }
+.field-box.is-select select { padding-left: 6px; }
 
 .profile-preview {
   min-height: 47px;
