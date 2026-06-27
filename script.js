@@ -34,6 +34,7 @@ const ICONS = {
   send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>',
   bell: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>',
   trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>',
+  grad: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>',
 };
 
 const STATUS = {
@@ -143,7 +144,7 @@ function updateProfilePreview(tipo) {
   const isProf = String(tipo).toLowerCase() === "professor";
   const icon = wrap.querySelector(".profile-preview-icon");
   const role = wrap.querySelector("[data-preview-role]");
-  if (icon) icon.innerHTML = isProf ? ICONS.shield : ICONS.user;
+  if (icon) icon.innerHTML = isProf ? ICONS.shield : ICONS.grad;
   if (role) role.textContent = isProf ? "Professor" : "Aluno";
   wrap.dataset.role = isProf ? "professor" : "aluno";
 }
